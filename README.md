@@ -4,6 +4,8 @@ This is a an example of a basic [quarto](https://quarto.org) website.
 
 GitHub Actions provide CI/CD to render and publish to GitHub Pages.
 
+Results can be seen here: <https://mskyttner.github.io/hello-quarto>
+
 ## Setup notes
 
 Stack used:
