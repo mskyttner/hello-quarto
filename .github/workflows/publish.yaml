@@ -35,23 +35,29 @@ jobs:
 #          target: gh-pages
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
-      - name: Install GH CLI
+      # - name: Install GH CLI
+      #   run: |
+      #     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+      #     && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+      #     && "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+      #     && apt update \
+      #     && apt install gh -y
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
+      #
+      # - name: Set up Quarto
+      #   uses: quarto-dev/quarto-actions/setup@v2
+      #   with:
+      #     # To install LaTeX to build PDF book
+      #     tinytex: true
+      #     # uncomment below and fill to pin a version
+      #     # version: SPECIFIC-QUARTO-VERSION-HERE
+
+      - name: Check from Quarto
         run: |
-          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-          && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-          && "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-          && apt update \
-          && apt install gh -y
+          quarto check
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
-
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          # To install LaTeX to build PDF book
-          tinytex: true
-          # uncomment below and fill to pin a version
-          # version: SPECIFIC-QUARTO-VERSION-HERE
 
       - name: Publish to GitHub Pages (and render)
         run: quarto publish gh-pages
