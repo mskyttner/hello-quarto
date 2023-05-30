@@ -2,10 +2,17 @@
 
 ## Setup notes
 
+Stack used:
+
 - R 4.2.2 (2022-10-31) -- "Innocent and Trusting"
 - RStudio 2022.12.0+353 "Elsbeth Geranium"
 - Quarto 1.3.272
 - Packages: tidyverse, palmerpenguins, gt
+
+CI/CD through GitHub Action, publishing to GitHub Pages, see these links for setup:
+
+- [CI setup](https://quarto.org/docs/publishing/ci.html#rendering-for-ci)
+- [required packages](https://github.com/quarto-dev/quarto-actions/blob/main/examples/example-03-dependencies.md)
 
 ## Demo
 
