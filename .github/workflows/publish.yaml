@@ -30,30 +30,6 @@ jobs:
             any::palmerpenguins
             any::gt
 
-#      - name: Publish to GitHub Pages (and render)
-#        uses: quarto-dev/quarto-actions/publish@v2
-#        with:
-#          target: gh-pages
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
-      # - name: Install GH CLI
-      #   run: |
-      #     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-      #     && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-      #     && "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-      #     && apt update \
-      #     && apt install gh -y
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
-      #
-      # - name: Set up Quarto
-      #   uses: quarto-dev/quarto-actions/setup@v2
-      #   with:
-      #     # To install LaTeX to build PDF book
-      #     tinytex: true
-      #     # uncomment below and fill to pin a version
-      #     # version: SPECIFIC-QUARTO-VERSION-HERE
-
       - name: Use latest Quarto version
         run: |
           wget -q https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.104/quarto-1.4.104-linux-amd64.deb
@@ -74,13 +50,7 @@ jobs:
           git add .
           git commit -a -m "update pages" || echo "nothing to commit"
           git push https://${GITHUB_PAT}:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}
+          git checkout main
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Publish to GitHub Pages (and render)
-      #   run: |
-      #     quarto render
-      #     quarto publish gh-pages --no-prompt
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
 
