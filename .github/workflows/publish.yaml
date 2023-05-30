@@ -31,7 +31,8 @@ jobs:
       - name: Install packages used by R
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          packages:
+          cache-version: 2
+          extra-packages: |
             any::ggthemes
             any::palmerpenguins
             any::gt
