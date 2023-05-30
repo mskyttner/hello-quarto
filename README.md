@@ -1,4 +1,8 @@
-# quarto-videos
+# hello-quarto
+
+This is a an example of a basic [quarto](https://quarto.org) website.
+
+GitHub Actions provide CI/CD to render and publish to GitHub Pages.
 
 ## Setup notes
 
@@ -9,10 +13,17 @@ Stack used:
 - Quarto 1.3.272
 - Packages: tidyverse, palmerpenguins, gt
 
-CI/CD through GitHub Action, publishing to GitHub Pages, see these links for setup:
+Alternative: Use [posit cloud](https://posit.cloud) or [podman/docker](https://rocker-project.org/images/versioned/rstudio.html)
 
+Publishing using GitHub Actions:
+
+For a CI/CD setup for publishing to GitHub Pages, see these links for setup:
+
+- [GitHub Pages setup](https://quarto.org/docs/publishing/github-pages.html)
 - [CI setup](https://quarto.org/docs/publishing/ci.html#rendering-for-ci)
-- [required packages](https://github.com/quarto-dev/quarto-actions/blob/main/examples/example-03-dependencies.md)
+- [Installing required packages](https://github.com/quarto-dev/quarto-actions/blob/main/examples/example-03-dependencies.md)
+
+For an alternative, see [this setup](.github/workflows/publish-site.yaml).
 
 ## Demo
 
